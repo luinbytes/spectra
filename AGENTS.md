@@ -34,11 +34,12 @@ instruction.
   PR description and say why. Silence is not acceptable; a reviewer
   should never have to ask whether the docs were considered.
 
-### README statements on the watch list
+### Statements on the watch list
 
-These statements are in README.md right now and will go stale. Keep
-this list current: add new ones as they appear, remove one only in the
-same PR that updates or removes the statement itself.
+These statements are in README.md or docs/ui-direction.md right now and
+will go stale. Keep this list current: add new ones as they appear,
+remove one only in the same PR that updates or removes the statement
+itself.
 
 - "Spectra does not have its own releases yet" and the Downloads
   section pointing to upstream Helium releases. Update on the first
@@ -53,6 +54,23 @@ same PR that updates or removes the statement itself.
   privacy documents exist.
 - The Helium beta note in Downloads. Revisit when Helium leaves beta
   or when Spectra's releases replace Helium's in that section.
+- docs/ui-direction.md: "locked ... as a proof of concept" and the
+  locked, draft and placeholder table. Update when the UI draft is
+  replaced by real browser UI, or when Lu changes what is locked.
+- docs/ui-direction.md, "Draft behaviour" section (island state
+  mapping, sizing, placement, keyboard and reduced motion, and the
+  Thinking-to-compact interpretation). Proposed, not locked. Update
+  when Lu accepts, changes or rejects them, or when the behaviour is
+  built.
+- docs/ui-direction.md, "Open questions, with draft answers", and the
+  "Proposal for Lu, not locked" paragraphs for Q1 (answer as a page in
+  a new tab) and Q2 (rail marker for work on another tab), plus the
+  AI-stack paragraph that says the island and command centre rule
+  stands until Lu accepts one. Update when Lu decides each question.
+- docs/ui-direction.md: the "not yet drawn" phone drawer for the
+  Spaces rail, and the "known rough edges" list of the draft
+  screenshots. Update when the rail is drawn for phones or the
+  screenshots are replaced.
 - Never remove or weaken the Helium credit. README.md credits Helium
   at the top and at the bottom, and those credits stay in place in
   every edit. New features get described as Spectra's; the foundation
@@ -118,7 +136,7 @@ same PR that updates or removes the statement itself.
 - Every release gets notes: what changed, what is known broken, and
   which Helium and Chromium versions it is based on.
 - The PR or change that cuts the first release, and every release
-  after it, must sweep the README watch list above in the same work:
+  after it, must sweep the watch list above in the same work:
   release related statements are updated when the release happens,
   not later.
 - Never edit, move, or delete a published release or its tag to make
@@ -198,7 +216,7 @@ new pin, a new platform repo), add it here in the same change.
   gets a decision, per the branch rules above.
 - Open issues: anything with no activity and no owner gets triaged,
   closed with a reason, or picked up.
-- The README watch list above: every statement still true, every
+- The watch list above: every statement still true, every
   trigger still ahead of us rather than behind us.
 - Pins and inputs that age: Chromium version references, GN flags,
   and any version pinned anywhere in the repo.
