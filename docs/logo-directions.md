@@ -97,9 +97,25 @@ Motifs that sit close to a trap, for Lu to judge:
   the rejected indigo circle with a thick amber band. D differs in form: a
   squared S letterform on a tile, with no circle and no band across it.
 
+## Tile contrast against browser surfaces
+
+Measured contrast between each tile colour and the surfaces it will sit on.
+The marks themselves are unchanged; these are notes for the redraw.
+
+- **A. Eclipse and B. Found line:** the bone tile `#F1ECE2` is faint on
+  white, at 1.18:1. In the redraw, each needs a light outline or a different
+  tile tone for light surfaces.
+- **C. Viewfinder:** the graphite tile `#1D1E22` almost vanishes on a
+  `#202124` dark browser theme, at 1.03:1. In the redraw, it needs a light
+  outline or a different tile tone for dark surfaces.
+- **D. Line S monogram:** the violet tile `#2E2A5C` almost vanishes on a
+  `#35363A` dark tab, at 1.09:1. In the redraw, it needs a light outline or a
+  different tile tone for dark tabs.
+
 ## How the images were made
 
 The SVGs are hand-written shapes, written by a small throwaway script that is
 not part of this repository. The contact sheet PNG was rendered from
-`contact-sheet.svg` with macOS Quick Look (`qlmanage`). The 16 px sizes were
-checked in that render and as separate 16 px renders of each mark.
+`contact-sheet.svg` at its native 1100 by 1040 px, at 1x with no scaling or
+cropping, using resvg. The 16 px sizes were checked in that render and as
+separate 16 px renders of each mark.
