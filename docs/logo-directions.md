@@ -1,21 +1,19 @@
 # Spectra logo directions
 
-These are **proposals for Lu to choose from** (issue #9). As of
-23 November 2026, none of these had been chosen, and the app icon
-inherited from Helium was unchanged.
+These are the four proposals from issue #9. Lu chose **B. Found line**.
+On 23 November 2026, issue #11 tracked the [redraw for review](#found-line-redraw).
 
-These are directions, not final art. Once Lu picks one, it gets redrawn
-properly as a clean vector, with tuned proportions, optical corrections and
-small-size hinting. Do not use these SVGs or PNGs as a pixel spec.
+The original proposal SVGs and PNG record the design exploration. Use the
+separate redraw for the review of proportions and small-size legibility.
 
 Each mark is a bold, flat silhouette on a rounded app tile. Each has its own
 limited palette, with no gradients and no rainbow. Pink is not used.
 
-![Contact sheet: each mark large and at 64, 32 and 16 px, on light and dark grounds, plus a 16 px tab favicon](logo-directions/contact-sheet.png)
+![Original contact sheet with four logo proposals and 16 px tab favicons](logo-directions/contact-sheet.png)
 
-The contact sheet shows each mark at 192 px, then at 64, 32 and 16 px on a
-light ground and on a dark ground. The last column is a dark browser tab with
-the mark at true 16 px favicon size. The source is
+The original contact sheet shows each mark at 192 px on white and at 64,
+32 and 16 px on light and dark grounds. The last column is a dark browser
+tab with the mark at true 16 px favicon size. The source is
 `logo-directions/contact-sheet.svg`.
 
 ## The marks
@@ -44,9 +42,26 @@ the mark at true 16 px favicon size. The source is
   that stays calm and works as a monochrome stamp too.
 - **At small size:** the gap is drawn wide on purpose. This is the simplest
   silhouette of the four.
-- **Note for the redraw:** the gap is 48/512 of the tile, about 1.5 px at
-  16 px, so its legibility at favicon size is marginal. Widen the gap, or
-  check it at 16 px, when this mark is redrawn.
+- **Original draft:** the gap was 48 of 512 units wide, or 1.5 px at 16 px.
+
+#### Found line redraw
+
+[Review SVG](logo-directions/b-found-line-redraw.svg)
+
+![Found line at 192, 64, 32 and 16 px on white and dark grounds, with a 16 px favicon in a mock dark tab](logo-directions/b-found-line-redraw-contact-sheet.png)
+
+The bone tile has a 24-unit outline in the same teal as the disc. The gap
+is 64 of 512 units wide and sits 64 units to the right of the disc centre.
+At 16 px the gap spans two whole pixels. The tile, disc and both palette
+colours carry through from the original proposal.
+
+The PNG shows the mark at native size without relying on Markdown SVG
+rendering. To regenerate it at 1×, run from the repository root:
+
+```sh
+resvg docs/logo-directions/b-found-line-redraw-contact-sheet.svg \
+  docs/logo-directions/b-found-line-redraw-contact-sheet.png
+```
 
 ### C. Viewfinder
 
@@ -58,8 +73,7 @@ the mark at true 16 px favicon size. The source is
   Helium's own line is yellow, so the one accent has a reason to be there.
   The yellow is used only for the line.
 - **At small size:** it reads as `[ | ]` at 16 px. On a dark browser theme the
-  graphite tile nearly disappears; a final version needs a lighter tile or an
-  outline variant for dark UIs.
+  graphite tile nearly disappears.
 
 ### D. Line S monogram
 
@@ -80,7 +94,7 @@ None of these use a rainbow fan, a gradient arc or ring, bars, a ribbon S, a
 prism, a browser window, rays, an atom or periodic tile, thin line work,
 fanning wedges, a diagonal band, or a banded triangle.
 
-Motifs that sit close to a trap, for Lu to judge:
+The original proposals noted these similarities:
 
 - **A. Eclipse:** two overlapping circles have a family resemblance to some
   well-known two-circle marks. A crescent version was drawn first and dropped
@@ -99,18 +113,17 @@ Motifs that sit close to a trap, for Lu to judge:
 
 ## Tile contrast against browser surfaces
 
-Measured contrast between each tile colour and the surfaces it will sit on.
-The marks themselves are unchanged; these are notes for the redraw.
+Measured contrast between the original proposal tiles and the surfaces in
+their contact sheet.
 
 - **A. Eclipse and B. Found line:** the bone tile `#F1ECE2` is faint on
-  white, at 1.18:1. In the redraw, each needs a light outline or a different
-  tile tone for light surfaces.
+  white, at 1.18:1. The Found line redraw adds a teal outline.
 - **C. Viewfinder:** the graphite tile `#1D1E22` almost vanishes on a
-  `#202124` dark browser theme, at 1.03:1. In the redraw, it needs a light
-  outline or a different tile tone for dark surfaces.
+  `#202124` dark browser theme, at 1.03:1. If redrawn, the mark would need
+  a light outline or a different tile tone for dark surfaces.
 - **D. Line S monogram:** the violet tile `#2E2A5C` almost vanishes on a
-  `#35363A` dark tab, at 1.09:1. In the redraw, it needs a light outline or a
-  different tile tone for dark tabs.
+  `#35363A` dark tab, at 1.09:1. If redrawn, the mark would need a light
+  outline or a different tile tone for dark tabs.
 
 ## How the images were made
 
