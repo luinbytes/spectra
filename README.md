@@ -30,8 +30,8 @@ with AI that actually does something, would look like on Linux.
 - **Deep AI, clean surface.** AI that can see context across tabs and
   Spaces (with per-Space permission), think and research across them,
   organise them, and act inside a tab with visible steps and approval
-  gates. One command bar and one panel, quiet by default, and you pick
-  the model.
+  gates. One command centre and a dynamic island on the page, never an
+  AI sidebar, quiet by default, and you pick the model.
 - **Nothing disappears silently.** No tab is ever archived, renamed,
   or tidied away without you seeing it happen.
 
