@@ -54,22 +54,20 @@ itself.
   privacy documents exist.
 - The Helium beta note in Downloads. Revisit when Helium leaves beta
   or when Spectra's releases replace Helium's in that section.
-- docs/ui-direction.md: "locked ... as a proof of concept" and the
-  locked, draft and placeholder table. Update when the UI draft is
-  replaced by real browser UI, or when Lu changes what is locked.
-- docs/ui-direction.md, "Draft behaviour" section (island state
-  mapping, sizing, placement, keyboard and reduced motion, and the
-  Thinking-to-compact interpretation). Proposed, not locked. Update
-  when Lu accepts, changes or rejects them, or when the behaviour is
-  built.
-- docs/ui-direction.md, "Open questions, with draft answers", and the
-  "Proposal for Lu, not locked" paragraphs for Q1 (answer as a page in
-  a new tab) and Q2 (rail marker for work on another tab), plus the
-  AI-stack paragraph that says the island and command centre rule
-  stands until Lu accepts one. Update when Lu decides each question.
-- docs/ui-direction.md: the "not yet drawn" phone drawer for the
-  Spaces rail, and the "known rough edges" list of the draft
-  screenshots. Update when the rail is drawn for phones or the
+- docs/ui-direction.md: "locked ... as a proof of concept" status line.
+  Update when the UI draft is replaced by real browser UI, or when Lu
+  changes what is locked.
+- docs/ui-direction.md, the draft's open questions at the bottom.
+  Undecided until Lu answers them. Update when he decides each one.
+- docs/ui-direction.md, once the issue #6 refinement lands (separate
+  stacked PR): the locked, draft and placeholder table; the "Draft
+  behaviour" section (island state mapping, sizing, placement, keyboard
+  and reduced motion, and the Thinking-to-compact interpretation); the
+  "Proposal for Lu, not locked" paragraphs for Q1 and Q2 and the AI-stack
+  paragraph that says the island and command centre rule stands until
+  Lu accepts one; the "not yet drawn" phone drawer and the "Known rough
+  edges" list. All are proposed, not locked. Update when Lu accepts,
+  changes or rejects them, when the behaviour is built, or when the
   screenshots are replaced.
 - Never remove or weaken the Helium credit. README.md credits Helium
   at the top and at the bottom, and those credits stay in place in

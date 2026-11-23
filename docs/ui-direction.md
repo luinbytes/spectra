@@ -11,15 +11,6 @@ placeholder copy are disposable. The principles are the requirements.
 The interactive draft is the "Spectra UI Preview" page (draft 3, built
 2026-11-23). The screenshots in `docs/images/` are captures of that draft.
 
-## What is locked, what is draft, what is placeholder
-
-| Layer | What it covers | Status |
-| --- | --- | --- |
-| Principles | The seven numbered rules below | Locked. Change only with Lu. |
-| Draft behaviour | Island state mapping, sizing limits, accessibility and motion notes, draft answers to the open questions | Proposed. Build from it, and change it when evidence shows a better way within the principles. |
-| Draft visuals | Layout, spacing, type, sizes, icons, the island's exact shapes | Disposable. Use the captures for reference only. |
-| Placeholder copy | The agent name "Moxie", the demo sites and articles, tab titles, memory figures, command names and shortcuts | Disposable. Not product copy. |
-
 ## The principles
 
 1. **No AI sidebar, ever.** There is no panel beside the page. The page never
@@ -53,100 +44,21 @@ The interactive draft is the "Spectra UI Preview" page (draft 3, built
 
 ## How the AI stack shows up in this UI
 
-The four AI layers (see, think, organise, act) surface only through the
-island and the command centre. Two draft answers under "Open questions"
-would add surfaces: an answer opened as its own page, and an activity marker
-on a rail tab. Both are proposals for Lu to decide. Neither is locked, and
-until Lu accepts one, this paragraph stands as written:
+The four AI layers (see, think, organise, act) all surface through the island
+and the command centre, nowhere else:
 
-- **Ask.** The question goes in through the command centre. The answer lands
-  in the island, expanded in place, with its sources.
-- **Organise.** Changes are suggested, never applied silently. The island
-  narrates the suggestion; the user applies it or dismisses it.
-- **Act.** Each step is visible in the expanded island. Anything that sends,
-  buys, or deletes stops for approval first.
-- **Model choice.** The model is picked per Space, not locked to one vendor.
-
-## Draft behaviour
-
-Everything in this section is proposed, not locked. It refines the draft so
-the principles hold up in real use.
-
-### Agent states and island shapes
-
-The draft has five agent states (Idle, Listening, Thinking, Acting, Done), and
-principle 3 has four island shapes. The table maps them and adds a sixth row,
-Dismissed. Dismissed is a user action, not a draft state; it is the "gone"
-shape.
-
-Thinking is an interpretation: principle 3 names compact only for present or
-listening, and expanded for working. This draft treats thinking as still
-present, not yet working, so it stays compact. Lu may choose expanded instead.
-
-| Agent state | Island shape | Glow | What the island says |
-| --- | --- | --- | --- |
-| Idle | None | None | Nothing. Only the command centre is visible. |
-| Listening | Compact | On | The agent name and one verb, for example "Listening". |
-| Thinking | Compact (interpretation) | On | The agent name and one verb, for example "Thinking". |
-| Acting | Expanded | On | A step list: done steps ticked, the current step marked, later steps numbered. |
-| Done | Settled | Fades | A tick and a one line summary, which opens the full answer or step log. |
-| Dismissed | Gone | None | Nothing. The page is exactly the page. |
-
-- The settled island leaves after a few seconds or on dismissal, but its
-  result is not lost. The latest answer and its step log stay available from
-  the command centre for that tab (principle 7).
-- An approval step (send, buy, delete) holds the island expanded. The island
-  waits for the user to approve or cancel and never times out into a choice.
-
-### Placement and size
-
-- The island floats over the top centre of the page content, below the top
-  bar. It never moves page content (principle 1).
-- Expanded, it stays within about a third of the viewport height and narrower
-  than the page. Longer content scrolls inside the island; see the first open
-  question.
-- At phone widths, the draft island covers the page headline. This is
-  acceptable while acting, because the island is the focus, but it must
-  shrink back to compact or settled once the work stops.
-
-### Theme sampling has a floor
-
-- The halo, highlight and glow tint follow the page's accent and light or dark
-  theme (principle 4). When the sampled accent is too low in contrast against
-  the page, or the page has no clear accent, fall back to the default spectrum
-  gradient. Island text must keep readable contrast in every theme.
-- The island and glow are drawn by the browser above the page, not inside the
-  page's own content. A page must not be able to paint something that passes
-  for the agent being present.
-
-### Keyboard, screen readers and motion
-
-- The command centre opens from anywhere with one shortcut (the draft shows
-  ⌘K). Arrow keys move through its suggestions, Enter runs one, and Escape
-  closes it.
-- The island can take keyboard focus without a pointer. Escape dismisses it
-  unless it is waiting for an approval; approve and cancel are real buttons.
-- The island has an accessible name made of the agent's name and its current
-  state. Step changes are announced politely to screen readers, not on every
-  word.
-- With reduced motion turned on, the island changes shape without animated
-  morphing, and the glow is a steady border with no pulse or shimmer. State
-  still shows through shape, text and the tick, never through motion alone.
-
-### Narrow widths
-
-- The draft hides the rail at phone width. The rail's contents (Spaces, tabs
-  with memory use, sleeping tabs, extensions) still need a home there; a
-  drawer opened from the top bar is the simplest fit. This is not yet drawn.
+- Asking goes through the command centre, answers land in the island,
+  expanded in place, with their sources.
+- Organising is suggested, never applied silently; the island narrates it and
+  the user applies or dismisses.
+- Acting is visible step by step in the expanded island, and anything that
+  sends, buys, or deletes stops for approval first.
+- The model is picked per Space, not locked to one vendor.
 
 ## Screenshots from the draft
 
-These show draft visuals and placeholder copy. Read them for the idea, not
-the pixels.
-
-Full draft page, idle on a light article page. No agent is running, so there
-is no glow and no island. The only AI surface is the command centre at the
-top:
+Full draft page, idle on a light article page. No agent running, so no glow
+and no island; the only AI surface is the command centre waiting up top:
 
 ![Full preview page, idle state](images/ui-preview-full.png)
 
@@ -154,69 +66,28 @@ Desktop width, top of the draft:
 
 ![Preview at desktop width](images/ui-preview-desktop.png)
 
-The same draft at phone width. The rail is hidden here (see Narrow widths):
+The same draft at phone width:
 
 ![Preview at mobile width](images/ui-preview-mobile.png)
 
-The agent acting on a light article page. The page edge glows, and the island
-is expanded and lists its steps:
+Agent acting on a light article page: the page edge glows and the island is
+expanded, narrating its steps:
 
 ![Agent acting, light page](images/ui-preview-acting-light.png)
 
-The agent acting on a dark docs page. The glow takes the page's accent. In
-this capture, the island body looks the same as on the light page, and the top
-bar still shows the article's placeholder address:
+Agent acting on a dark docs page: the island and glow restyle themselves to
+the page's dark theme and accent:
 
 ![Agent acting, dark docs page](images/ui-preview-acting-dark-docs.png)
 
-The command centre open. A sentence it cannot resolve is offered to the agent
-first, with browser commands listed below it:
+The command centre open, with a question routed to Ask and the command list
+under it:
 
 ![Command centre open](images/ui-preview-command-centre.png)
 
-Known rough edges in the draft, which are not part of the direction:
+## Open questions from the draft
 
-- Rail tab titles wrap one word per line, and the memory badge overlaps long
-  titles.
-- The dark docs capture keeps the light article's placeholder address.
-- The island body barely changes between light and dark pages, so the
-  captures show principle 4 mainly through the glow.
-
-## Open questions, with draft answers
-
-Each answer is a proposal within the principles. It is not locked until Lu
-accepts it.
-
-1. **How far can the island expand for a long answer before it becomes the
-   sidebar it replaced?**
-   Draft answer: no further than about a third of the viewport height, never
-   full height, and never pinned to a side. Past that, the answer scrolls
-   inside the island.
-   Proposal for Lu, not locked: when an answer is long enough to read as a
-   document, the island offers to open it as a page in a new tab. This adds
-   an AI surface beyond the island and command centre. It is also in tension
-   with principle 1, which says the AI uses "the page's own surface", not a
-   new page of its own. If Lu declines, a long answer only scrolls inside the
-   capped island.
-   Still to decide: the exact size limit, and whether to accept the answer
-   page proposal.
-
-2. **Should the glow pulse while the agent is acting on a different tab?**
-   Draft answer: no. The glow means "the agent is on this page" (principle 2),
-   so it belongs only on the tab being worked on. The page you are looking at
-   shows a compact island naming the other tab, for example "Working in
-   Train times". Nothing pulses on a page the agent is not touching.
-   Proposal for Lu, not locked: the rail also marks the tab being worked on
-   with a spectrum indicator. This adds an AI surface beyond the island and
-   command centre. If Lu declines, the compact island alone names the other
-   tab.
-   Still to decide: what shows when the agent works across several tabs at
-   once, as in the "Working across 3 tabs" capture.
-
-3. **Should the command centre live on the new tab page too?**
-   Draft answer: yes, as the same top bar, focused when the new tab opens.
-   There is no second search box in the page body, because two inputs would
-   break "one bar". The new tab page body can show recent Spaces and pinned
-   sites instead.
-   Still to decide: whether the new tab page shows anything about the agent
-   at all, given that idle means no AI surface beyond the bar.
+- How far should the island expand for long answers before it becomes the
+  sidebar it replaced?
+- Should the glow pulse while the agent is acting on a different tab?
+- Should the command centre live on the new tab page too?
