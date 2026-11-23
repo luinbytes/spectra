@@ -25,14 +25,14 @@ favicons/favicon_history_48.png components/resources/default_300_percent/favicon
 favicons/favicon_plugins_16.png extensions/browser/resources/default_100_percent/favicon_extensions.png
 favicons/favicon_plugins_32.png extensions/browser/resources/default_200_percent/favicon_extensions.png
 
-branding/product_logo.png components/resources/default_100_percent/chromium/product_logo.png
-branding/product_logo_white.png components/resources/default_100_percent/chromium/product_logo_white.png
-branding/product_logo_200.png components/resources/default_200_percent/chromium/product_logo.png
-branding/product_logo_white_200.png components/resources/default_200_percent/chromium/product_logo_white.png
+generated/product_icon/32x32.png components/resources/default_100_percent/chromium/product_logo.png
+generated/product_icon/32x32.png components/resources/default_100_percent/chromium/product_logo_white.png
+generated/product_icon/64x64.png components/resources/default_200_percent/chromium/product_logo.png
+generated/product_icon/64x64.png components/resources/default_200_percent/chromium/product_logo_white.png
 
 branding/product_logo_22_mono.png chrome/app/theme/chromium/product_logo_22_mono.png
 
-branding/product_logo.svg chrome/app/theme/chromium/product_logo.svg
+../docs/logo-directions/b-found-line-redraw.svg chrome/app/theme/chromium/product_logo.svg
 
 branding/product_logo.icon chrome/app/vector_icons/browser_logo.icon
 branding/product_logo.icon chrome/app/vector_icons/browser_logo_old.icon

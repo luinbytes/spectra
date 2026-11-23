@@ -6,6 +6,11 @@
 import re
 import sys
 import xml.etree.ElementTree as xml
+from copy import deepcopy
+from pathlib import Path
+
+SPECTRA_MESSAGES = frozenset((Path(__file__).resolve().parent.parent / 'resources' / 'spectra' /
+                              'product-messages.txt').read_text(encoding='utf-8').split())
 
 REPLACEMENT_REGEXES_STR = [
     # stuff we don't want to replace
@@ -133,6 +138,7 @@ def replace_grit_tree(text):
     """Replaces instances of Chrom(e | ium) with Helium, where desired"""
     xml_tree = xml.fromstring(text, get_parser())
     fp_map = {}
+    spectra_fp_map = {}
 
     for message in xml_tree.findall('.//message'):
         old_fp = compute_fp(message)
@@ -140,8 +146,20 @@ def replace_grit_tree(text):
             new_fp = compute_fp(message)
             if old_fp != new_fp:
                 fp_map[old_fp] = new_fp
+                if message.get('name') in SPECTRA_MESSAGES:
+                    replace_spectra_name(message)
+                    spectra_fp_map[old_fp] = compute_fp(message)
 
-    return xml.tostring(xml_tree, encoding='unicode', xml_declaration=True), fp_map
+    return xml.tostring(xml_tree, encoding='unicode', xml_declaration=True), fp_map, spectra_fp_map
+
+
+def replace_spectra_name(message):
+    """Rebrand Helium product text while keeping the GRIT placeholders intact."""
+    if message.text:
+        message.text = re.sub(r'Helium(?!\w)', 'Spectra', message.text)
+    for child in message:
+        if child.tail:
+            child.tail = re.sub(r'Helium(?!\w)', 'Spectra', child.tail)
 
 
 def dedup_translations_in_place(translation, seen):
@@ -162,16 +180,29 @@ def dedup_translations_in_place(translation, seen):
     seen.add(translation_id)
 
 
-def replace_xtb_tree(text, fp_map):
+def replace_xtb_tree(text, fp_map, spectra_fp_map):
     """Same as replace_grit_tree(), but on .xtb translation files."""
     xml_tree = xml.fromstring(text, get_parser())
     changed = False
     ids_seen = set()
+    spectra_translations = {}
 
     for translation in xml_tree.findall('.//translation'):
-        assert translation.get('id')
-        changed |= replace_xtb_translation(translation, fp_map)
+        original_id = translation.get('id')
+        assert original_id
+        replaced = replace_xtb_translation(translation, fp_map)
+        changed |= replaced
+        if replaced and original_id in spectra_fp_map:
+            copy = deepcopy(translation)
+            replace_spectra_name(copy)
+            spectra_translations.setdefault(spectra_fp_map[original_id], copy)
         dedup_translations_in_place(translation, ids_seen)
+
+    # A message that still names Helium can share the original fingerprint.
+    for message_id, translation in spectra_translations.items():
+        if message_id not in ids_seen:
+            translation.set('id', message_id)
+            xml_tree.append(translation)
 
     if changed:
         return xml.tostring(xml_tree, encoding='unicode', xml_declaration=True)
@@ -184,8 +215,8 @@ def merge_fp_maps(results):
     Takes all the results from substitute_file() calls, and merges
     their fingerprint mappings.
     """
-    merged_fp_map = {}
-    for result in results:
-        _, fp_map = result
+    merged_fp_map, merged_spectra_fp_map = {}, {}
+    for _, fp_map, spectra_fp_map in results:
         merged_fp_map.update(fp_map)
-    return merged_fp_map
+        merged_spectra_fp_map.update(spectra_fp_map)
+    return merged_fp_map, merged_spectra_fp_map

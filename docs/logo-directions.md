@@ -3,8 +3,8 @@
 These are the four proposals from issue #9. Lu chose **B. Found line**.
 On 23 November 2026, issue #11 tracked the [redraw for review](#found-line-redraw).
 
-The original proposal SVGs and PNG record the design exploration. Use the
-separate redraw for the review of proportions and small-size legibility.
+The original proposal SVGs and PNG record the design exploration. The
+[Found line redraw](#found-line-redraw) supplies the browser's app icon.
 
 Each mark is a bold, flat silhouette on a rounded app tile. Each has its own
 limited palette, with no gradients and no rainbow. Pink is not used.
@@ -46,7 +46,7 @@ tab with the mark at true 16 px favicon size. The source is
 
 #### Found line redraw
 
-[Review SVG](logo-directions/b-found-line-redraw.svg)
+[App icon source SVG](logo-directions/b-found-line-redraw.svg)
 
 ![Found line at 192, 64, 32 and 16 px on white and dark grounds, with a 16 px favicon in a mock dark tab](logo-directions/b-found-line-redraw-contact-sheet.png)
 

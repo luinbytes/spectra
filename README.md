@@ -1,6 +1,6 @@
 <div align="center">
-    <img src="resources/branding/app_icon/raw.png"
-        title="Spectra" alt="Spectra logo (placeholder, inherited from Helium)" width="120" />
+    <img src="docs/logo-directions/b-found-line-redraw.svg"
+        title="Spectra" alt="Spectra Found line logo" width="120" />
     <h1>Spectra</h1>
     <p>
         A Linux-first browser with AI through the whole stack,
@@ -36,11 +36,11 @@ with AI that actually does something, would look like on Linux.
   or tidied away without you seeing it happen.
 
 > [!NOTE]
-> Spectra is at the very beginning. Right now it is a rebrand of
-> Helium with a design direction, not a finished browser. The code
-> here is currently Helium's, and Spectra's own changes will land on
-> top of it as a clearly separated patch layer so the fork can always
-> rebase onto upstream.
+> The first [Spectra patch](https://github.com/luinbytes/spectra/issues/13)
+> adds the Spectra name and Found line icon to the browser. The changes
+> build on Helium in a [separate patch layer](patches/spectra/) so the
+> fork can rebase onto upstream. The sidebar and AI features above
+> describe the design direction.
 
 ## Downloads
 
@@ -116,6 +116,18 @@ development happens on Linux first.
 
 Linux packaging includes a similar development script, so the same guide
 can be applied there too.
+
+### App icon
+
+The build scales `resources/spectra/app_icon.png` into seven sizes from
+16 to 256 px and copies them into Chromium's product icon slots. The
+512 px PNG is a build input for the existing Pillow scaler, which reads
+raster images. If the [Found line SVG](docs/logo-directions/b-found-line-redraw.svg)
+changes, regenerate the PNG with resvg 0.45.1.
+
+```sh
+resvg docs/logo-directions/b-found-line-redraw.svg resources/spectra/app_icon.png
+```
 
 ## Contributing
 
