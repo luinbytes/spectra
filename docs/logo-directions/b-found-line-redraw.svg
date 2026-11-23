@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title>Spectra Found line redraw</title>
+  <rect x="12" y="12" width="488" height="488" rx="100" fill="#F1ECE2" stroke="#0F4C5C" stroke-width="24"/>
+  <path fill="#0F4C5C" d="M288 87.003 A172 172 0 1 0 288 424.997 Z M352 113.283 A172 172 0 0 1 352 398.717 Z"/>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="title">
+  <title>Spectra Found line at four sizes on light and dark grounds and in a dark browser tab</title>
+  <defs>
+    <symbol id="found-line" viewBox="0 0 512 512">
+      <rect x="12" y="12" width="488" height="488" rx="100" fill="#F1ECE2" stroke="#0F4C5C" stroke-width="24"/>
+      <path fill="#0F4C5C" d="M288 87.003 A172 172 0 1 0 288 424.997 Z M352 113.283 A172 172 0 0 1 352 398.717 Z"/>
+    </symbol>
+  </defs>
+  <rect width="1100" height="320" fill="#FFFFFF"/>
+  <rect x="510" width="590" height="320" fill="#202124"/>
+  <text x="24" y="36" font-size="22" font-weight="700" fill="#111111">Spectra · Found line redraw</text>
+
+  <g fill="#111111">
+    <text x="24" y="72" font-size="16" font-weight="700">Light ground</text>
+    <use href="#found-line" x="24" y="92" width="192" height="192"/>
+    <use href="#found-line" x="244" y="156" width="64" height="64"/>
+    <use href="#found-line" x="336" y="172" width="32" height="32"/>
+    <use href="#found-line" x="396" y="180" width="16" height="16"/>
+    <g text-anchor="middle" font-size="12">
+      <text x="120" y="304">192 px</text>
+      <text x="276" y="240">64 px</text>
+      <text x="352" y="224">32 px</text>
+      <text x="404" y="216">16 px</text>
+    </g>
+  </g>
+
+  <g fill="#E8EAED">
+    <text x="534" y="72" font-size="16" font-weight="700">Dark ground</text>
+    <use href="#found-line" x="534" y="92" width="192" height="192"/>
+    <use href="#found-line" x="750" y="156" width="64" height="64"/>
+    <use href="#found-line" x="838" y="172" width="32" height="32"/>
+    <use href="#found-line" x="894" y="180" width="16" height="16"/>
+    <rect x="934" y="172" width="142" height="32" rx="8" fill="#35363A"/>
+    <use href="#found-line" x="944" y="180" width="16" height="16"/>
+    <text x="968" y="193" font-size="13">Spectra</text>
+    <g text-anchor="middle" font-size="12">
+      <text x="630" y="304">192 px</text>
+      <text x="782" y="240">64 px</text>
+      <text x="854" y="224">32 px</text>
+      <text x="902" y="216">16 px</text>
+      <text x="1005" y="224">16 px favicon</text>
+    </g>
+  </g>
+</svg>
