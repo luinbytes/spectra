@@ -1,7 +1,7 @@
 # Spectra logo directions
 
 These are the four proposals from issue #9. Lu chose **B. Found line**.
-Issue #11 tracks the [redraw for review](#found-line-redraw).
+On 23 November 2026, issue #11 tracked the [redraw for review](#found-line-redraw).
 
 The original proposal SVGs and PNG record the design exploration. Use the
 separate redraw for the review of proportions and small-size legibility.
@@ -73,8 +73,7 @@ resvg docs/logo-directions/b-found-line-redraw-contact-sheet.svg \
   Helium's own line is yellow, so the one accent has a reason to be there.
   The yellow is used only for the line.
 - **At small size:** it reads as `[ | ]` at 16 px. On a dark browser theme the
-  graphite tile nearly disappears; a final version needs a lighter tile or an
-  outline variant for dark UIs.
+  graphite tile nearly disappears.
 
 ### D. Line S monogram
 
@@ -95,7 +94,7 @@ None of these use a rainbow fan, a gradient arc or ring, bars, a ribbon S, a
 prism, a browser window, rays, an atom or periodic tile, thin line work,
 fanning wedges, a diagonal band, or a banded triangle.
 
-Motifs that sit close to a trap, for Lu to judge:
+The original proposals noted these similarities:
 
 - **A. Eclipse:** two overlapping circles have a family resemblance to some
   well-known two-circle marks. A crescent version was drawn first and dropped
@@ -120,11 +119,11 @@ their contact sheet.
 - **A. Eclipse and B. Found line:** the bone tile `#F1ECE2` is faint on
   white, at 1.18:1. The Found line redraw adds a teal outline.
 - **C. Viewfinder:** the graphite tile `#1D1E22` almost vanishes on a
-  `#202124` dark browser theme, at 1.03:1. In the redraw, it needs a light
-  outline or a different tile tone for dark surfaces.
+  `#202124` dark browser theme, at 1.03:1. If redrawn, the mark would need
+  a light outline or a different tile tone for dark surfaces.
 - **D. Line S monogram:** the violet tile `#2E2A5C` almost vanishes on a
-  `#35363A` dark tab, at 1.09:1. In the redraw, it needs a light outline or a
-  different tile tone for dark tabs.
+  `#35363A` dark tab, at 1.09:1. If redrawn, the mark would need a light
+  outline or a different tile tone for dark tabs.
 
 ## How the images were made
 
