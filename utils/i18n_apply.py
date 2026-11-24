@@ -143,21 +143,27 @@ def resolve_xtb(src, lang_code, xtb_index):
 def merge_into_xtb(xtb_path, source_entries, trans_by_key):
     """Merge translations for matching source entries into a single XTB file."""
     # TODO: handle feminine/masculine variants via <branch> elements
-    seen_ids = set()
-    entries = []
+    entries = {}
+    spectra_entries = {}
     for src in source_entries:
-        key = (src['name'], src['message'])
-        trans = trans_by_key.get(key)
+        name = src['name']
+        trans = trans_by_key.get((name, src['message']))
         if not trans:
             continue
-        msg_id = get_id(src['name'], src['context'], src['message'], src.get('meaning'))
-        if msg_id in seen_ids:
-            continue
-        seen_ids.add(msg_id)
-        entries.append((msg_id, to_xtb_message(trans['message'])))
+        context, meaning = src['context'], src.get('meaning')
+        message = to_xtb_message(trans['message'])
+        msg_id = get_id(name, context, src['message'], meaning)
+        entries.setdefault(msg_id, message)
 
+        # Keep the upstream catalogue keys while supplying the branded GRIT message.
+        if name in namesub.SPECTRA_MESSAGES:
+            spectra_source = namesub.replace_spectra_text(src['message'])
+            spectra_id = get_id(name, context, spectra_source, meaning)
+            spectra_entries.setdefault(spectra_id, namesub.replace_spectra_text(message))
+
+    entries = spectra_entries | entries
     if entries:
-        insert_into_xtb(xtb_path, entries)
+        insert_into_xtb(xtb_path, entries.items())
     return len(entries)
 
 

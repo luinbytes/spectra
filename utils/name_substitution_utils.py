@@ -12,6 +12,16 @@ from pathlib import Path
 SPECTRA_MESSAGES = frozenset((Path(__file__).resolve().parent.parent / 'resources' / 'spectra' /
                               'product-messages.txt').read_text(encoding='utf-8').split())
 
+SPECTRA_PRODUCT_NAMES = {
+    'Heliumit': 'Spectrat',
+    'Heliumia': 'Spectraa',
+    'Helium을': 'Spectra를',
+    'Heliumను': 'Spectraను',
+    'Helium': 'Spectra',
+}
+SPECTRA_PRODUCT_NAME = re.compile('(?:' + '|'.join(map(re.escape, SPECTRA_PRODUCT_NAMES)) +
+                                  r')(?!\w)')
+
 REPLACEMENT_REGEXES_STR = [
     # stuff we don't want to replace
     (r'(\w+) Root Program', r'\1_unreplace Root Program'),
@@ -153,13 +163,18 @@ def replace_grit_tree(text):
     return xml.tostring(xml_tree, encoding='unicode', xml_declaration=True), fp_map, spectra_fp_map
 
 
+def replace_spectra_text(text):
+    """Use the Spectra product name in allowlisted text."""
+    return SPECTRA_PRODUCT_NAME.sub(lambda match: SPECTRA_PRODUCT_NAMES[match.group()], text)
+
+
 def replace_spectra_name(message):
     """Rebrand Helium product text while keeping the GRIT placeholders intact."""
     if message.text:
-        message.text = re.sub(r'Helium(?!\w)', 'Spectra', message.text)
+        message.text = replace_spectra_text(message.text)
     for child in message:
         if child.tail:
-            child.tail = re.sub(r'Helium(?!\w)', 'Spectra', child.tail)
+            child.tail = replace_spectra_text(child.tail)
 
 
 def dedup_translations_in_place(translation, seen):
