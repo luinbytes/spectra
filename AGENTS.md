@@ -105,11 +105,45 @@ or removes what it tracks.
 - Spectra and everything unique to it or to Helium in this repo is
   GPL-3.0. Keep the license file and all upstream credits intact.
 
+## Branch model: main, nightly, and upstream syncs
+
+- `main` is the protected release branch. Only verified, release
+  ready code lives there: if it is on `main`, it can go out to
+  users. Nothing is committed to `main` directly and no work PR
+  targets `main`; code reaches `main` only by promotion from
+  `nightly` (below). Branch protection enforces this.
+- `nightly` is the integration branch. All new work is based on
+  `nightly` and merges back into it: feature branches, fixes,
+  swarm PRs, spikes, docs and guideline changes. Bugs are
+  acceptable on `nightly`; proving them out is what promotion is
+  for. Where older sections of this file say a change merges to
+  `main`, read `nightly`, unless the section is about releases
+  or promotion.
+- Promotion: when a state of `nightly` is verified (CI green,
+  patch series applying cleanly, Codex reviews checked, and the
+  change actually run where that applies), open one PR from
+  `nightly` to `main`. That PR is the release gate. Issue closing
+  keywords for everything the promotion carries go in its
+  description, and whoever merges it verifies the issues closed,
+  per the auto close rule below.
+- Upstream Helium syncs: sync when Helium cuts a release, because
+  those releases carry the Chromium version bumps and the security
+  fixes that ride on them. Use a short lived `sync/` branch off
+  `nightly`, merge the whole upstream `main` state into it, and
+  open a PR back into `nightly`; delete the sync branch when it
+  merges. Never cherry pick individual upstream commits as the
+  sync mechanism: the patch series interlocks, and partial syncs
+  leave it incoherent. Take upstream's functional changes whole;
+  Spectra's identity is protected by the separated patch layer
+  (`patches/spectra/`) and `resources/spectra/`, so if an upstream
+  change touches Helium branding or conflicts with Spectra's,
+  resolve it in Spectra's favour and say so in the sync PR.
+
 ## Branches stay clean
 
-- main is always releasable. Nobody pushes to main directly; every
-  change arrives by PR, with CI green and the Codex review checked
-  (see above) before merge.
+- main is always releasable, and it is promotion only; see the
+  branch model above. nightly is where PRs land, with CI green
+  and the Codex review checked (see above) before merge.
 - One branch per change, named for what it does, with a short prefix
   for the kind of work: feat/, fix/, docs/, agents/, chore/,
   rebrand/ are the established prefixes.
@@ -119,9 +153,10 @@ or removes what it tracks.
   or close it and record what is left to do on the watch list (see
   "Nothing gets forgotten" below). Never let it quietly rot.
 - Delete branches when their PR merges or closes. A merged branch
-  that still exists is clutter, not a backup; the history is in main.
-- Keep an open branch current with main while it lives, so merges
-  never arrive as a pile of stale conflicts.
+  that still exists is clutter, not a backup; the history is in
+  nightly and main.
+- Keep an open branch current with nightly while it lives, so
+  merges never arrive as a pile of stale conflicts.
 - Never force push over someone else's work, and never rewrite
   history on main.
 
