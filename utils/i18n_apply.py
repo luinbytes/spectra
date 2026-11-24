@@ -17,7 +17,10 @@ from collections import defaultdict
 from multiprocessing import Pool
 from pathlib import Path
 
-import name_substitution_utils as namesub
+if __package__:
+    from utils import name_substitution_utils as namesub
+else:
+    import name_substitution_utils as namesub
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 I18N_DIR = REPO_ROOT / 'i18n'
