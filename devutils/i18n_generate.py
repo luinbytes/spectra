@@ -18,11 +18,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
 from downloads import DownloadInfo # pylint: disable=wrong-import-order
 import utils.name_substitution_utils as namesub # pylint: disable=wrong-import-order
 
-# Helium 0.22.2.1 platform releases match Spectra's Helium 0.22.2 base.
+# Helium 0.22.4.1 platform commits match Spectra's Helium 0.22.4 base.
+# The macOS 0.22.4.1 commit is untagged.
 PLATFORM_REVISIONS = {
-    "windows": "35ea155749e86c5bca6d5c80034709b0fe762432",
-    "macos": "3a89c36d8835fa94b11a57df8cc54afc1d4eec8a",
-    "linux": "d77f716db31b6009e88c75ce94d5a2bf21794286",
+    "windows": "4f7143df92fd0c29ce50c4856523bb8390bf6753",
+    "macos": "0b5bf1274dfce6aa8163060d9a7172fd7bac409b",
+    "linux": "4c8b8256a29290d57a5dd279c4228e770cf3904e",
 }
 REPO_URL = "https://github.com/imputnet/helium-{repo}.git"
 ROOT_DIR = Path(__file__).resolve().parent.parent
