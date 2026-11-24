@@ -129,6 +129,15 @@ changes, regenerate the PNG with resvg 0.45.1.
 resvg docs/logo-directions/b-found-line-redraw.svg resources/spectra/app_icon.png
 ```
 
+The colour vector icon follows the same tile, outline, and split disc. The
+monochrome vector and 22 px tray icon use only the split disc so the consumer
+can tint the mark. The mono SVG keeps the disc path from the approved
+Found line SVG. Regenerate the tray input with resvg 0.45.1.
+
+```sh
+resvg --width 22 resources/spectra/product_mark_mono.svg resources/spectra/product_logo_22_mono.png
+```
+
 ## Contributing
 
 Before contributing to Spectra, please read the guidelines in
