@@ -36,10 +36,9 @@ instruction.
 
 ### Statements on the watch list
 
-These statements are in README.md or docs/ui-direction.md right now and
-will go stale. Keep this list current: add new ones as they appear,
-remove one only in the same PR that updates or removes the statement
-itself.
+These statements and pins can go stale. Keep this list current: add new
+ones as they appear, and remove an entry only in the same PR that updates
+or removes what it tracks.
 
 - "Spectra does not have its own releases yet" and the Downloads
   section pointing to upstream Helium releases. Update on the first
@@ -69,6 +68,12 @@ itself.
   edges" list. All are proposed, not locked. Update when Lu accepts,
   changes or rejects them, when the behaviour is built, or when the
   screenshots are replaced.
+- `devutils/i18n_generate.py` pins the Helium platform patches used for
+  translation extraction. When Spectra adopts a new Helium base or a
+  platform patch set, update the matching commit pins, run
+  `python3 devutils/i18n.py generate`, and commit any catalog diff in the
+  same PR. Remove the generator's pins when it can use the same immutable
+  platform references as Spectra's builds.
 - Never remove or weaken the Helium credit. README.md credits Helium
   at the top and at the bottom, and those credits stay in place in
   every edit. New features get described as Spectra's; the foundation

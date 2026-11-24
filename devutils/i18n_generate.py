@@ -18,7 +18,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
 from downloads import DownloadInfo # pylint: disable=wrong-import-order
 import utils.name_substitution_utils as namesub # pylint: disable=wrong-import-order
 
-PLATFORMS = ("windows", "macos", "linux")
+# Helium 0.22.2.1 platform releases match Spectra's Helium 0.22.2 base.
+PLATFORM_REVISIONS = {
+    "windows": "35ea155749e86c5bca6d5c80034709b0fe762432",
+    "macos": "3a89c36d8835fa94b11a57df8cc54afc1d4eec8a",
+    "linux": "d77f716db31b6009e88c75ce94d5a2bf21794286",
+}
 REPO_URL = "https://github.com/imputnet/helium-{repo}.git"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 ONBOARDING_VERSION = DownloadInfo([ROOT_DIR / "deps.ini"])['onboarding'].version
@@ -31,10 +36,11 @@ def get_xml_attr(text, attr):
 
 
 def prep_platform_repos(platforms_dir):
-    """Clone and update platform repos into the given directory."""
+    """Check out the configured revisions of the platform and onboarding repos."""
     platforms_dir.mkdir(parents=True, exist_ok=True)
 
-    for repo in list(PLATFORMS) + ["onboarding"]:
+    revisions = PLATFORM_REVISIONS | {"onboarding": ONBOARDING_VERSION}
+    for repo, revision in revisions.items():
         dest = platforms_dir / repo
         if not dest.is_dir():
             subprocess.run(
@@ -43,10 +49,7 @@ def prep_platform_repos(platforms_dir):
                 check=True,
             )
         subprocess.check_call(["git", "-C", str(dest), "fetch"])
-        subprocess.check_call([
-            "git", "-C",
-            str(dest), "checkout", ONBOARDING_VERSION if repo == "onboarding" else "origin/main"
-        ])
+        subprocess.check_call(["git", "-C", str(dest), "checkout", revision])
 
 
 def get_patch_paths(repo_root, platforms_dir):
@@ -54,7 +57,7 @@ def get_patch_paths(repo_root, platforms_dir):
     Generate patch file paths from all series files (main repo + platforms).
     """
     series_files = [repo_root / "patches" / "series"] + \
-        [platforms_dir / platform / "patches" / "series" for platform in PLATFORMS]
+        [platforms_dir / platform / "patches" / "series" for platform in PLATFORM_REVISIONS]
 
     for series_file in series_files:
         patches_dir = series_file.parent
