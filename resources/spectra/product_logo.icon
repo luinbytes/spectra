@@ -1,0 +1,10 @@
+// Found line disc from docs/logo-directions/b-found-line-redraw.svg.
+// Leave the fill colour to the consumer.
+CANVAS_DIMENSIONS, 56,
+FILL_RULE_NONZERO,
+MOVE_TO, 31.5f, 9.515953f,
+ARC_TO, 18.8125f, 18.8125f, 0, 1, 0, 31.5f, 46.484047f,
+CLOSE,
+MOVE_TO, 38.5f, 12.390328f,
+ARC_TO, 18.8125f, 18.8125f, 0, 0, 1, 38.5f, 43.609672f,
+CLOSE

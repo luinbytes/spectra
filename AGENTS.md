@@ -43,11 +43,8 @@ or removes what it tracks.
 - "Spectra does not have its own releases yet" and the Downloads
   section pointing to upstream Helium releases. Update on the first
   Spectra release.
-- "Right now it is a rebrand of Helium with a design direction" and
-  "the code here is currently Helium's". Update as Spectra's own
-  features and patch layer land.
-- The logo is a placeholder inherited from Helium. Update the README
-  image and its alt text when Spectra gets its own logo.
+- README.md presents the sidebar and AI features as a design direction.
+  Update each feature's status when it lands in the browser.
 - "Spectra will publish its own before any public release" in the
   legal documents section. Update when Spectra's own terms and
   privacy documents exist.

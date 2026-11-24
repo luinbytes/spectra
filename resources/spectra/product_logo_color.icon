@@ -1,0 +1,17 @@
+// Found line tile and disc from docs/logo-directions/b-found-line-redraw.svg.
+CANVAS_DIMENSIONS, 256,
+PATH_COLOR_ARGB, 0xFF, 0xF1, 0xEC, 0xE2,
+ROUND_RECT, 6, 6, 244, 244, 50,
+NEW_PATH,
+PATH_COLOR_ARGB, 0xFF, 0x0F, 0x4C, 0x5C,
+STROKE, 12,
+ROUND_RECT, 6, 6, 244, 244, 50,
+NEW_PATH,
+FILL_RULE_NONZERO,
+PATH_COLOR_ARGB, 0xFF, 0x0F, 0x4C, 0x5C,
+MOVE_TO, 144, 43.5015f,
+ARC_TO, 86, 86, 0, 1, 0, 144, 212.4985f,
+CLOSE,
+MOVE_TO, 176, 56.6415f,
+ARC_TO, 86, 86, 0, 0, 1, 176, 199.3585f,
+CLOSE
